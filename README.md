@@ -1,7 +1,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog-App ](#-blog-app-)
+- [📖 Budget-App ](#-budget-app-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -20,7 +20,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog-App <a name="about-project"></a>
+# 📖 Budget-App <a name="about-project"></a>
 
  **Budget App** is an example of a blog website built using Ruby on Rails and PostgreSQL.It is a fully functional website that shows a list of posts, users can also interact with posts, likes and comments.
 
