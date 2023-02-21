@@ -7,6 +7,7 @@
     <%= render group %>
     <p>
       <%= link_to "Show this group", group %>
+      <%= link_to "Show this account", group_accounts_path(:group_id, :id) %>
     </p>
   <% end %>
 </div>
