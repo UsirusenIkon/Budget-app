@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to account_url(@account), notice: 'Account was successfully created.' }
+        format.html { redirect_to new_group_account_path(@account), notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +64,6 @@ class AccountsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def account_params
-    params.require(:account).permit(:name, :ammount)
+    params.require(:account).permit(:name, :ammount, group_ids: [])
   end
 end
