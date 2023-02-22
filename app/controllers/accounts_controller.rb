@@ -1,36 +1,32 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: %i[show edit update destroy]
-
   # GET /accounts or /accounts.json
   def index
-    @accounts = Account.all
+    @account = current_user.accounts.find(params[:group_id])
+    @accounts = @account.ordered_accounts
+    # @accounts = GroupAccount.includes(:account).where(group_id: @groups).order(created_at: :desc)
+    # @total_accounts = @accounts.map { |expense| expense.account.amount }.sum
   end
-
-  # GET /accounts/1 or /accounts/1.json
-  def show; end
 
   # GET /accounts/new
   def new
     @account = Account.new
+    @groups = Group.all
+    @group = @groups.find(params[:group_id])
   end
-
-  # GET /accounts/1/edit
-  def edit; end
 
   # POST /accounts or /accounts.json
   def create
     @account = Account.new(account_params)
-
-    respond_to do |format|
-      if @account.save
-        format.html { redirect_to new_group_account_path(@account), notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    @account.user_id = current_user.id
+    @group_account = GroupAccount.new(group_id: params[:group_id], account: @account)
+    
+    if @group_account.save
+      redirect_to group_path(params[:group_id]), notice: 'Account was successfully created.'
+    else
+      render :new
     end
   end
+  
 
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
@@ -64,6 +60,6 @@ class AccountsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def account_params
-    params.require(:account).permit(:name, :ammount, group_ids: [])
+    params.require(:account).permit(:name, :ammount)
   end
 end
