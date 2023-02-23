@@ -31,7 +31,6 @@ class GroupsController < ApplicationController
       end
       @group_totals[group.id] = total_price
     end
-    
   end
 
   # GET /groups/new
