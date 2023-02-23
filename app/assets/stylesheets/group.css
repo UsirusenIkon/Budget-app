@@ -1,0 +1,27 @@
+.group {
+  margin: 1rem;
+  gap: 1rem;
+  background-color: white;
+}
+
+.group-items {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 5rem;
+}
+
+.group-items.fit {
+  right: 2rem;
+}
+
+small {
+  font-size: 8px;
+}
+
+.see-details {
+  display: block;
+}
+
+.hamburger-menu {
+  display: flex;
+}

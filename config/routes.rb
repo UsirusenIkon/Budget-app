@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'home/index'
+  devise_for :user
 
-  resources :groups, except: [:update, :show] do
-    resources :accounts,  only: [:index, :new, :create, :destroy, :update]
+  # Define root paths for authenticated and unauthenticated users
+  devise_scope :user do
+    authenticated :user do
+      root 'groups#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'home#index', as: :unauthenticated_root
+    end
   end
-  resources :users
+  
+  resources :groups, only: [:index, :new, :create, :show, :destroy] do
+    resources :accounts, only: [:index, :new, :create, :show, :destroy]
+  end
+  resources :home
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end

@@ -1,27 +1,34 @@
-<%= form_with(model: account) do |form| %>
-  <% if account.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+<div class="container">
+  <%= form_with(model: account, url: group_accounts_path(group_id: @group.id)) do |form| %>
+    <% if account.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-      <ul>
-        <% account.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% account.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :ammount, style: "display: block" %>
+      <%= form.number_field :ammount %>
+    </div>
+
+    <div> 
+      <%= form.label :group_id %>
+      <%= form.collection_select :group_id, current_user.groups, :id, :name %>
+    </div>
+
+    <div>
+      <%= form.submit class: "form-btn" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :ammount, style: "display: block" %>
-    <%= form.number_field :ammount %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

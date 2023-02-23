@@ -1,17 +1,14 @@
+<%= stylesheet_link_tag "application", "group" %>
 <div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= group.created_at %>
-  </p>
-
+    <div class="group flex pad">
+      <div class="img"><%= group.icon %></div>
+      <div class="group-items flex">
+        <h2><%= group.name %></h2>
+        <small><%= group.created_at %></small>
+      </div>
+      <div class="group-items flex fit">
+        <strong class="t-mount"><%= @group_totals && @group_totals[group.id] || 0 %></strong>
+        <%= button_to "See details", group, class: 'see-details', method: :get %>
+      </div>
+    </div>
 </div>

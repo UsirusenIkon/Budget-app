@@ -1,10 +1,19 @@
-<h1>Home#index</h1>
+<%= stylesheet_link_tag "application", "home" %>
+
+
+
+<div class="home-badge">
+  <img class="home-img" src="https://plus.unsplash.com/premium_photo-1672759267156-ffa694fa1d57?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1069&q=80" alt="unsplash, by Ave Calvar">
+  <h1 class="home-title">Budget App</h1>
+</div>
 
 <% if user_signed_in? %> 
-<div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path, method: :get %> 
+  <div> Welcome <%= current_user.name %> </div> 
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete, redirect_to: home_path(:id) %> 
+  <% else %>
+  <div class="btn-container">
+    <%= button_to "Sign in", new_user_session_path, class: "new-btn", method: :get %>
+  </div>
 <% end %>
 
-<p>Find me in app/views/home/index.html.erb</p>
+
