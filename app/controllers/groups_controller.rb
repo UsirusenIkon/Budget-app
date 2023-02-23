@@ -5,12 +5,33 @@ class GroupsController < ApplicationController
     @groups = Group.where(user: current_user)
     @accounts = Account.where(user: current_user)
     @group_accounts = GroupAccount.all
+    @categories = Group.includes(:accounts)
+    @group_totals = {}
+
+    @categories.each do |group|
+      total_price = 0
+      group.accounts.each do |account|
+        total_price += account.ammount
+      end
+      @group_totals[group.id] = total_price
+    end
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
     @accounts = @group.accounts.where(user: current_user)
+    @categories = Group.includes(:accounts)
+    @group_totals = {}
+
+    @categories.each do |group|
+      total_price = 0
+      group.accounts.each do |account|
+        total_price += account.ammount
+      end
+      @group_totals[group.id] = total_price
+    end
+    
   end
 
   # GET /groups/new

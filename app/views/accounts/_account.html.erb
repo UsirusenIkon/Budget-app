@@ -1,12 +1,9 @@
-<div id="<%= dom_id account %>">
-  <p>
-    <strong>Name:</strong>
-    <%= account.name %>
-  </p>
-
-  <p>
-    <strong>Ammount:</strong>
-    <%= account.ammount %>
-  </p>
-
+<div>
+  <% @group.accounts.each do |account| %>
+    <div class="account-item">
+      <h4><%= account.name %></h4>
+      <p><strong>Amount:</strong> <%= account.ammount %></p>
+      <p><strong>Created at:</strong> <%= account.created_at.strftime("%d %b %Y") %></p>
+    </div>
+  <% end %>
 </div>

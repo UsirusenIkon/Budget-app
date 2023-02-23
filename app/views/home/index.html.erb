@@ -1,9 +1,9 @@
 <h1>Home#index</h1>
 
 <% if user_signed_in? %> 
-<div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
+<div> Welcome <%= current_user.name %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, redirect_to: home_path(:id) %> 
+  <% else %>
   <%= button_to "Sign in", new_user_session_path, method: :get %> 
 <% end %>
 

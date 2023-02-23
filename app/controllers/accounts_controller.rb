@@ -3,8 +3,6 @@ class AccountsController < ApplicationController
   def index
     @account = current_user.accounts.find(params[:group_id])
     @accounts = @account.ordered_accounts
-    # @accounts = GroupAccount.includes(:account).where(group_id: @groups).order(created_at: :desc)
-    # @total_accounts = @accounts.map { |expense| expense.account.amount }.sum
   end
 
   # GET /accounts/new

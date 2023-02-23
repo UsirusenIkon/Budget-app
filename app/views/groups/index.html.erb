@@ -1,15 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Groups</h1>
 
 <div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-      <%= link_to "Show this account", group_accounts_path(:group_id, :id) %>
-    </p>
+  <%= render "status" %>
+
+  <h1>Groups</h1>
+
+  <% if @groups.empty? %>
+    <p class="no-groups">No groups for now</p>
+  <% else %>
+    <ul class="groups-list">
+      <% @groups.each do |group| %>
+        <%= render group %>
+        <p>
+          <%= link_to "Show this group", group %>
+        </p>
+      <% end %>
+    </ul>
   <% end %>
+<%= link_to "New group", new_group_path %>
 </div>
 
-<%= link_to "New group", new_group_path %>

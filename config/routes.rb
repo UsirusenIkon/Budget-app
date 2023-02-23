@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'home/index'
+  devise_for :user
+  # get 'groups/index'
 
-  resources :groups, except: [:update, :show] do
-    resources :accounts,  only: [:index, :new, :create, :destroy, :update]
+  resources :groups, only: [:index, :new, :create, :show, :destroy] do
+    resources :accounts, only: [:index, :new, :create, :show, :destroy]
   end
   resources :users
+  resources :home
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "groups#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end

@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @group %>
-
 <div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
+  <%= render 'status' %>
+  <%= render partial: @group  %>
+  <%= render "accounts/account" %>
+  
+  <%# <%= link_to "New account", new_group_account_path(group_id: @group.id) %>
+  <%= link_to "New Account", new_group_account_path(@group) %>
 
+
+  <%= link_to "Back to groups", groups_path %>
   <%= button_to "Destroy this group", @group, method: :delete %>
 </div>

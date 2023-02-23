@@ -1,17 +1,12 @@
 <div id="<%= dom_id group %>">
   <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
+    <div class="group">
+      <h3><%= group.name %></h3>
+      <p><%= group.icon %></p>
+      <p><%= group.created_at %></p>
+      <p>Total amount: <%= @group_totals && @group_totals[group.id] || 0 %></p>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= group.created_at %>
+    </div>
   </p>
 
 </div>
