@@ -3,6 +3,6 @@
       <p> Welcome <%= current_user.name %> </p> 
       <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= redirect_to new_user_session_path %>
+      <%= link_to "Sign in", new_user_session_path %>
     <% end %>
   </div>

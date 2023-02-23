@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "navbar", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div class="header">
+      <label class="hamburger-menu">
+        <input type="checkbox">
+      </label>
+      <aside class="side-bar">
+        <nav class="nav-bar flex">
+          <div>Account Settings</div>
+          <div>Merchant Finder</div>
+          <div>Claim Promo</div>
+          <div>Share Promo</div>
+          <div><%= render "groups/status" %></div>
+        </nav>
+      </aside>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

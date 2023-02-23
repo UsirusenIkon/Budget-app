@@ -4,7 +4,6 @@
 
 <br>
 
-<div>
-  <%= link_to "Back to Groups", group_path(@group.id)  %>
-
+<div class="btn-container">
+  <%= button_to "Back to Groups", group_path(@group.id), class: "new-btn", method: :get %>
 </div>

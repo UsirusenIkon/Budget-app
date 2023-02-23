@@ -1,14 +1,14 @@
+<%= stylesheet_link_tag "application", "detail" %>
 <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= render 'status' %>
-  <%= render partial: @group  %>
+<h1>DETAILS</h1>
+<div class="container">
+  <%= render partial: @group %>
   <%= render "accounts/account" %>
+  <%= button_to "", groups_path, class: "back-btn fit bx bx-arrow-back", method: :get %>
   
-  <%# <%= link_to "New account", new_group_account_path(group_id: @group.id) %>
-  <%= link_to "New Account", new_group_account_path(@group) %>
-
-
-  <%= link_to "Back to groups", groups_path %>
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <%# <%= button_to "Destroy this group", @group, method: :delete %>
 </div>
+  <div class="btn-container flex">
+    <%= button_to "New Account", new_group_account_path(@group), class: "new-btn", method: :get %>
+  </div>
