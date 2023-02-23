@@ -17,14 +17,13 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
     @account.user_id = current_user.id
     @group_account = GroupAccount.new(group_id: params[:group_id], account: @account)
-    
+
     if @group_account.save
       redirect_to group_path(params[:group_id]), notice: 'Account was successfully created.'
     else
       render :new
     end
   end
-  
 
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
