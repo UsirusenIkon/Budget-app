@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = Group.where(user: current_user)
-    @accounts = Account.where(user: current_user)
+    @accounts = Account.where(user: current_user).order(created_at: :desc)
     @group_accounts = GroupAccount.all
     @categories = Group.includes(:accounts)
     @group_totals = {}
@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
-    @accounts = @group.accounts.where(user: current_user)
+    @accounts = @group.accounts.where(user: current_user).order(created_at: :desc)
     @categories = Group.includes(:accounts)
     @group_totals = {}
 

@@ -1,5 +1,5 @@
 .details-content {
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin: 1rem;
   padding: 0.5em;
   gap: 1rem;
