@@ -12,7 +12,8 @@
     <%= button_to "Sign out", destroy_user_session_path, method: :delete, redirect_to: home_path(:id) %> 
   <% else %>
   <div class="btn-container">
-    <%= button_to "Sign in", new_user_session_path, class: "new-btn", method: :get %>
+    <%= button_to "log in", new_user_session_path, class: "new-btn home-color", method: :get %>
+    <%= button_to "Sign up", new_registration_path(@resource_name), class: "new-btn home-color", method: :get %>
   </div>
 <% end %>
 

@@ -26,9 +26,8 @@
 }
 
 .new-btn {
-  /* max-width: 38rem; */
   width: 100%;
-  background-color: var(--tetiary-color);
+  background-color: var(--secondary-color);
 }
 
 .btn-container {
