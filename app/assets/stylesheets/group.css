@@ -2,12 +2,27 @@
   margin: 1rem;
   gap: 1rem;
   background-color: white;
+  height: 4rem;
+}
+
+.group form {
+  padding: 0;
+}
+
+.group-item {
+  width: 100%;
+  justify-content: space-between;
 }
 
 .group-items {
   justify-content: space-between;
   flex-direction: column;
-  height: 5rem;
+}
+
+.group-items-1 {
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .group-items.fit {
@@ -20,8 +35,18 @@ small {
 
 .see-details {
   display: block;
+  margin: 0;
 }
 
 .hamburger-menu {
   display: flex;
+}
+
+.img {
+  max-width: 4rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
 }
