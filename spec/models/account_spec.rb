@@ -11,7 +11,8 @@ RSpec.describe Account, type: :model do
     Account.create(
       user: user1,
       name: 'savings',
-      ammount: 50
+      ammount: 50,
+      user_id: 1
     )
   end
 
