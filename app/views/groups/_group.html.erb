@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "application", "group" %>
+<div id="<%= dom_id group %>">
+    <div class="group flex pad">
+      <div class="img">
+      <%= image_tag group.icon, class: "image" if group.icon.attached? %>
+      </div>
+      <div class="group-item flex">
+        <div class="group-items flex">
+          <h2><%= group.name %></h2>
+          <small><%= group.created_at %></small>
+        </div>
+        <div class="group-items-1 flex">
+          <strong class="t-mount"><%= @group_totals && @group_totals[group.id] || 0 %></strong>
+          <%= button_to "See details", group, class: 'see-details', method: :get %>
+        </div>
+      </div>
+    </div>
+</div>

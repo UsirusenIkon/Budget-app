@@ -1,0 +1,120 @@
+:root {
+  --bar-width: 2rem;
+  --bar-height: 4px;
+  --hamburger-gap: 3px;
+  --hamburger-margin: 1.5rem;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.header {
+  background-color: var(--secondary-color);
+  height: 5rem;
+  display: block;
+}
+
+.hamburger-menu {
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  z-index: 200;
+  cursor: pointer;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: white;
+  border-radius: 3rem;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+  display: block;
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  display: block;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+  display: block;
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+  display: block;
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.side-bar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: translate var(--animation-timing);
+  translate: -100%;
+  padding: 0.5rem 1rem;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 2rem);
+  background-color: var(--secondary-color);
+  width: 70%;
+  height: 100vh;
+  filter: drop-shadow(2px 2px 2px);
+}
+
+.hamburger-menu:has(input:checked) + .side-bar {
+  translate: 0;
+}
+
+.nav-bar {
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  color: whitesmoke;
+}
+
+.navbar-content {
+  justify-content: space-between;
+  width: 100%;
+  gap: 1em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1em;
+}
+
+.nav-menu {
+  gap: 1em;
+}
+
+.logo {
+  margin: 1rem auto;
+}
+
+.home-img-logo {
+  max-width: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+}

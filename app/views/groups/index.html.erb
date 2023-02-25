@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "application", "navbar", "group", "detail" %>
+
+<h1>TRANSACTIONS</h1>
+<div class="container">
+
+
+  <% if @groups.empty? %>
+    <p class="no-groups">No groups for now</p>
+  <% else %>
+    <ul class="groups-list">
+      <% @groups.each do |group| %>
+        <%= render group %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="btn-container flex">
+  <%= button_to "New group", new_group_path, class: "new-btn", method: :get %>
+</div>

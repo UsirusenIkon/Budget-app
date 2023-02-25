@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <%= stylesheet_link_tag "application", "navbar", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="header">
+      <label class="hamburger-menu">
+        <input type="checkbox">
+      </label>
+      <aside class="side-bar">
+        <nav class="nav-bar flex">
+          <div class="logo">
+          <img class="home-img-logo" src="https://plus.unsplash.com/premium_photo-1672759267156-ffa694fa1d57?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1069&q=80" alt="unsplash, by Ave Calvar">
+          <h1 class="home-title">Budget App</h1>
+          </div>
+          <div>Account Settings</div>
+          <div>Merchant Finder</div>
+          <div>Claim Promo</div>
+          <div>Share Promo</div>
+          <div><%= render "groups/status" %></div>
+        </nav>
+      </aside>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

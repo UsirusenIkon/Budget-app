@@ -1,0 +1,38 @@
+.hamburger-menu {
+  display: none;
+}
+
+.header {
+  display: none;
+}
+
+.home-badge {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-img {
+  max-width: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.home-title {
+  font-size: 2rem;
+  filter: drop-shadow(2px 5px 2px var(--secondary-color));
+}
+
+.home-color {
+  background-color: aliceblue;
+  filter: drop-shadow(2px 2px 2px var(--secondary-color));
+  color: var(--secondary-color);
+}
+
+.home-color:active {
+  background-color: var(--secondary-color);
+  color: white;
+}

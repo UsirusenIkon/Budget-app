@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag "application", "detail" %>
+<div class="details-content flex">
+  <% @group.accounts.each do |account| %>
+    <div class="details-item flex gap">
+      <h4><%= account.name %></h4>
+      <div class="details flex">
+        <p><strong>Created at:</strong> <%= account.created_at.strftime("%d %b %Y") %></p>
+        <p><strong>Amount:</strong> <%= account.ammount %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
