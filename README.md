@@ -22,7 +22,7 @@
 
 # 📖 Budget-App <a name="about-project"></a>
 
- **Budget App** is an example of a blog website built using Ruby on Rails and PostgreSQL.It is a fully functional website that shows a list of posts, users can also interact with posts, likes and comments.
+ **Budget App** is an example of a budget website built using Ruby on Rails and PostgreSQL.It is a fully functional website that shows a list of groups or categories, users can also create multiple transactions under a group, the app also returns a total of the transactions under a group.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -88,13 +88,13 @@ To setup and install this sample ROR Blog project, follow the below steps:
 - Clone this project by the command: 
 
 ```
-$ git clone https://github.com/UsirusenIkon/Blog-App.git
+$ git clone https://github.com/UsirusenIkon/Budget-app.git
 ```
 
 - Then switch to the project folder by the bellow query:
 
 ```
-$ cd Blog-App
+$ cd Budget-app
 ```
 
 - Install the required dependecies with `bundle install`
@@ -164,10 +164,10 @@ Feel free to check the [issues page](../../issues/).
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- I would like to thank Microverse.
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- I would like to thank Microverse for these Design Guidelines
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=).
+- Hat tip to anyone whose code was used 🤝
+- Inspiration 🔥
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
