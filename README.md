@@ -94,7 +94,7 @@ $ git clone https://github.com/UsirusenIkon/Budget-app.git
 - Then switch to the project folder by the bellow query:
 
 ```
-$ cd Budget-app
+$ cd Budget-app 
 ```
 
 - Install the required dependecies with `bundle install`
